@@ -16,7 +16,7 @@ def test_create_schedule_happy_path(rf):
     # Check that creating the same day again throws 400
     response = create_schedule(request)
     assert response.status_code == status.HTTP_400_BAD_REQUEST
-    assert "Another appointment already exists on same day" in response.content
+    assert b"Another appointment already exists on same day" in response.content
 
 
 @pytest.mark.django_db
